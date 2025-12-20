@@ -1,0 +1,49 @@
+{% set page_name = "代码相似度查询" %}
+{% extends "layout/basic.html" %}
+{% block content %}
+<div class="row">
+  <div class="medium-9 columns">
+    <div class="section">
+      <div class="section__body">
+          <p style="margin:1rem">{{ _('This page only displays the code similarity of AC submissions, sorted in descending order of similarity. If there are fewer than 2 submissions, it is considered as having no submissions.') }}</p>
+
+          {% if not com.length %}
+          {{ nothing.render(_('No submissions...')) }}
+          {% else %}
+          <table class="data-table">
+            <colgroup>
+              <col class="col--user">
+              <col class="col--record">
+              <col class="col--user">
+              <col class="col--record">
+              <col class="col--similarity">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="col--user">{{ _('User A')}}</th>
+                <th class="col--record">{{ _('Record A')}}</th>
+                <th class="col--user">{{ _('User B') }}</th>
+                <th class="col--record">{{ _('Record B') }}</th>
+                <th class="col--similarity">{{ _('Similarity') }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%- for i in com -%}
+              <tr>
+                <td class="col--user">{{ user.render_inline(i.ua) }}</td>
+                <td class="col--record"><a href="/record/{{ i.a._id }}" target="_blank">{{ i.a._id }}</a></td>
+                <td class="col--user">{{ user.render_inline(i.ub) }}</td>
+                <td class="col--record"><a href="/record/{{ i.b._id }}" target="_blank">{{ i.b._id }}</a></td>
+                <td class="col--similarity">{{ i.d }}</td>
+              </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+          {{ paginator.render(page, upcount) }}	
+          {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
