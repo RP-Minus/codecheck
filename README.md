@@ -18,5 +18,5 @@
 
 当然你可以修改权限配置，有以下几处可以修改：
 
-- `index.ts`第83行，此处为入口
+- `index.ts`第84行，此处为入口
 - `templates/partials/problem_sidebar_normal.html`第108行，此处为显示按钮
