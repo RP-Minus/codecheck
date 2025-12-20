@@ -2,7 +2,8 @@ import {
     _, db, UserModel, SettingModel, DomainModel, Handler, param, PRIV, Types, query, NotFoundError,
     RecordDoc,
     User,
-    PERM
+    PERM,
+    ObjectID
 } from 'hydrooj';
 
 interface mypair{
@@ -21,7 +22,7 @@ declare module 'hydrooj' {
 }
 async function getCode(domainId:string,pid:number):Promise<RecordDoc[]>{
     // 此处只比代码正确的相似度
-    return coll.find({domainId:domainId,status:1,pid:pid}).toArray();
+    return coll.find({domainId:domainId,status:1,pid:pid,contest:{$ne:new ObjectID('000000000000000000000000')}}).toArray();
 }
 // 检查代码相似度（主要是要做一遍编辑距离问题）
 async function getSimilar(a:string,b:string){
