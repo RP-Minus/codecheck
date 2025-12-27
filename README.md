@@ -1,5 +1,3 @@
-肝了一个晚上，求Star
-
 # Code Check插件
 
 这是一个基于 [HydroOJ](https://github.com/hydro-dev/Hydro) 的代码相似度查询插件。
