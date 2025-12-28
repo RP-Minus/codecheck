@@ -1,6 +1,6 @@
 # Code Check插件
 
-这是一个基于 [HydroOJ](https://github.com/hydro-dev/Hydro) 的代码相似度查询插件。
+这是一个基于 [HydroOJ](https://github.com/hydro-dev/Hydro) 的代码检查插件。
 
 写得有些丑，可能有一些不可名状的Bug，还请谨慎使用，如有发现Bug，可以联系我们（email: `norp@foxmail.com`）。
 
@@ -10,6 +10,7 @@
 
 ## 权限配置
 
+### 代码相似度检查
 `PERM.PERM_CREATE_PROBLEM`（域中可创建题目）：可以检查代码相似度
 
 同时，对于拥有权限`PERM.PERM_CREATE_PROBLEM`的用户，可以看到每道题目侧边栏上用一个检查代码相似度的按钮
